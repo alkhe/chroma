@@ -424,7 +424,109 @@ th {
 }
 
 .button {
+  -webkit-transition: 0.2s ease;
+  -moz-transition: 0.2s ease;
+  -o-transition: 0.2s ease;
+  -ms-transition: 0.2s ease;
+  transition: 0.2s ease;
+  outline: 0;
+  background: #fff;
+  font-size: 15px;
+  padding: 9px 30px;
+}
+.button.primary {
+  color: #6857c7;
+}
+.button.success {
+  color: #71d094;
+}
+.button.danger {
+  color: #c25c47;
+}
+.button:not(.link).primary {
+  border: 2px solid #6857c7;
+}
+.button:not(.link).success {
+  border: 2px solid #71d094;
+}
+.button:not(.link).danger {
+  border: 2px solid #c25c47;
+}
+.button:not(.link):hover {
+  color: #fff;
+}
+.button:not(.link).primary:hover {
+  background: #6857c7;
+}
+.button:not(.link).primary:active {
+  background: #4b39ac;
+  border-color: #4b39ac;
+}
+.button:not(.link).success:hover {
+  background: #71d094;
+}
+.button:not(.link).success:active {
+  background: #41c070;
+  border-color: #41c070;
+}
+.button:not(.link).danger:hover {
+  background: #c25c47;
+}
+.button:not(.link).danger:active {
+  background: #9f4735;
+  border-color: #9f4735;
+}
+.button.link {
+  border: 2px solid transparent;
+}
+.button.link:after {
+  -webkit-transition: 0.2s ease;
+  -moz-transition: 0.2s ease;
+  -o-transition: 0.2s ease;
+  -ms-transition: 0.2s ease;
+  transition: 0.2s ease;
+  content: '';
+  display: block;
+  margin: auto;
+  height: 2px;
+  width: 0;
   background: transparent;
-  color: #800080;
-  border: 1px solid #800080;
+}
+.button.link:hover:after {
+  width: 100%;
+}
+.button.link.primary:hover:after {
+  background: #6857c7;
+}
+.button.link.primary:active {
+  color: #4b39ac;
+}
+.button.link.primary:active:after {
+  background: #4b39ac;
+}
+.button.link.success:hover:after {
+  background: #71d094;
+}
+.button.link.success:active {
+  color: #41c070;
+}
+.button.link.success:active:after {
+  background: #41c070;
+}
+.button.link.danger:hover:after {
+  background: #c25c47;
+}
+.button.link.danger:active {
+  color: #9f4735;
+}
+.button.link.danger:active:after {
+  background: #9f4735;
+}
+.button.small {
+  font-size: 10px;
+  padding: 6px 20px;
+}
+.button.large {
+  font-size: 20px;
+  padding: 12px 40px;
 }

@@ -1,7 +1,89 @@
 @import 'nib'
 @require '../node_modules/normalize.css/normalize.css'
 
+$white = #fff
+$black = #000
+$red = #c25c47
+$orange = #ffa514
+$yellow = #d5d581
+$green = #71d094
+$blue = #4064bf
+$purple = #6857c7
+
+$primary = $purple
+$success = $green
+$danger = $red
+
+colors = (primary $primary) (success $success) (danger $danger)
+
+$darken(c)
+	darken(c, 20%)
+
+$color(fn)
+	for c in colors
+		&.{c[0]}
+			fn(c[1])
+
+$transition()
+	transition .2s ease
+
 .button
-	background transparent
-	color purple
-	border 1px solid purple
+	$transition()
+	outline 0
+	background $white
+
+	$color(@(c) {
+		color c
+	})
+
+	font-size 15px
+	padding 9px 30px
+
+	&:not(.link)
+		$color(@(c) {
+			border 2px solid c
+		})
+
+		&:hover
+			color $white
+
+		buttonhover(c)
+			&:hover
+				background c
+
+			&:active
+				background $darken(c)
+				border-color $darken(c)
+		$color(buttonhover)
+
+	&.link
+		border 2px solid transparent
+
+		&:after
+			$transition()
+			content ''
+			display block
+			margin auto
+			height 2px
+			width 0
+			background transparent
+
+		&:hover:after
+			width 100%
+
+		buttonunderline(c)
+			&:hover:after
+				background c
+			&:active
+				color $darken(c)
+				&:after
+					background $darken(c)
+		$color(buttonunderline)
+
+	&.small
+		font-size 10px
+		padding 6px 20px
+
+	&.large
+		font-size 20px
+		padding 12px 40px
