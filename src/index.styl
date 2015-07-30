@@ -3,6 +3,7 @@
 
 $white = #fff
 $black = #000
+
 $red = #c25c47
 $orange = #ffa514
 $yellow = #d5d581
@@ -13,72 +14,82 @@ $purple = #6857c7
 $primary = $purple
 $success = $green
 $danger = $red
+$info = $blue
+$warning = $orange
+$alert = $yellow
 
-colors = (primary $primary) (success $success) (danger $danger)
+$border-size = 2px
+$border-radius = 0
+
+colors = ('' $primary) (success $success) (danger $danger) (info $info) (warning $warning) (alert $alert)
+sizes = ('' 1) (small 2/3) (large 4/3)
 
 $darken(c)
-	darken(c, 20%)
+	darken c 20%
+
+$lighten(c)
+	lighten c 50%
+
+$active = $darken
+$focus = $lighten
 
 $color(fn)
 	for c in colors
-		&.{c[0]}
-			fn(c[1])
+		if c[0] is ''
+			fn c[1]
+		else
+			&.{c[0]}
+				fn c[1]
+
+// $scale(factor, args)
+// 	list = clone(args)
+// 	for i in list
+// 		if i isnt 0
+// 			list[i] *= factor
+// 	list
+
+$size(props...)
+	for s in sizes
+		if s[0] is ''
+			for p in props
+				{p[0]} p[1] * s[1]
+		else
+			&.{s[0]}
+				for p in props
+					{p[0]} p[1] * s[1]
 
 $transition()
 	transition .2s ease
 
-.button
+button.c
 	$transition()
 	outline 0
 	background $white
 
-	$color(@(c) {
-		color c
-	})
-
-	font-size 15px
+	font-size 10px
 	padding 9px 30px
 
 	&:not(.link)
-		$color(@(c) {
-			border 2px solid c
-		})
-
-		&:hover
+		border $border-size solid
+		border-radius $border-radius
+		&:hover, &:active
 			color $white
 
-		buttonhover(c)
-			&:hover
-				background c
-
-			&:active
-				background $darken(c)
-				border-color $darken(c)
-		$color(buttonhover)
-
 	&.link
-		border 2px solid transparent
+		border $border-size solid transparent
 
 		&:after
 			$transition()
 			content ''
 			display block
 			margin auto
-			height 2px
+			height $border-size
+			border-radius $border-radius
 			width 0
 			background transparent
 
-		&:hover:after
+		&:hover:after, &:focus:after
 			width 100%
-
-		buttonunderline(c)
-			&:hover:after
-				background c
-			&:active
-				color $darken(c)
-				&:after
-					background $darken(c)
-		$color(buttonunderline)
 
 	&.small
 		font-size 10px
@@ -87,3 +98,37 @@ $transition()
 	&.large
 		font-size 20px
 		padding 12px 40px
+
+	colorize(c)
+		color c
+
+		&:not(.link)
+			border-color c
+
+			&:hover
+				background c
+
+			&:active
+				background $active(c)
+				border-color $active(c)
+
+			&:not(:hover):not(:active):focus
+				color $focus(c)
+				border-color $focus(c)
+
+		&.link
+			&:hover:after, &:focus:after
+				background c
+
+			&:active
+				color $active(c)
+
+				&:after
+					background $active(c)
+
+			&:not(:hover):not(:active):focus
+				color $focus(c)
+
+				&:after
+					background $focus(c)
+	$color colorize
