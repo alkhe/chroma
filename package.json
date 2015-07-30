@@ -1,0 +1,27 @@
+{
+  "name": "chroma",
+  "version": "0.0.1",
+  "description": "A pure visual CSS framework.",
+  "main": "index.js",
+  "scripts": {
+    "test": ":"
+  },
+  "keywords": [
+    "css",
+    "chroma",
+    "framework"
+  ],
+  "author": "synchronous",
+  "license": "MIT",
+  "dependencies": {
+    "nib": "^1.1.0",
+    "normalize.css": "^3.0.3"
+  },
+  "devDependencies": {
+    "babel-core": "^5.8.19",
+    "gulp": "^3.9.0",
+    "gulp-minify-css": "^1.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-stylus": "^2.0.5"
+  }
+}
