@@ -430,7 +430,8 @@ button.c {
   -ms-transition: 0.3s;
   transition: 0.3s;
   outline: 0;
-  background: #fff;
+  background: transparent;
+  position: relative;
   color: #6857c7;
   font-size: 10px;
   padding: 9px 30px;
@@ -460,7 +461,6 @@ button.c.link:after {
   -webkit-border-radius: 0;
   border-radius: 0;
   width: 0;
-  background: transparent;
 }
 button.c.link:hover:after,
 button.c.link:focus:after {
@@ -476,9 +476,9 @@ button.c:not(.link):active {
   background: #4b39ac;
   border-color: #4b39ac;
 }
-button.c:not(.link):not(:hover):not(:active):focus {
-  color: #b3abe3;
-  border-color: #b3abe3;
+button.c:not(.link):focus {
+  -webkit-box-shadow: 0 0 5px #6857c7;
+  box-shadow: 0 0 5px #6857c7;
 }
 button.c.link:hover:after,
 button.c.link:focus:after {
@@ -490,11 +490,9 @@ button.c.link:active {
 button.c.link:active:after {
   background: #4b39ac;
 }
-button.c.link:not(:hover):not(:active):focus {
-  color: #b3abe3;
-}
-button.c.link:not(:hover):not(:active):focus:after {
-  background: #b3abe3;
+button.c.link:focus {
+  -webkit-box-shadow: 0 0 10px #6857c7;
+  box-shadow: 0 0 10px #6857c7;
 }
 button.c.success {
   color: #71d094;
@@ -509,9 +507,9 @@ button.c.success:not(.link):active {
   background: #41c070;
   border-color: #41c070;
 }
-button.c.success:not(.link):not(:hover):not(:active):focus {
-  color: #b8e7ca;
-  border-color: #b8e7ca;
+button.c.success:not(.link):focus {
+  -webkit-box-shadow: 0 0 5px #71d094;
+  box-shadow: 0 0 5px #71d094;
 }
 button.c.success.link:hover:after,
 button.c.success.link:focus:after {
@@ -523,11 +521,9 @@ button.c.success.link:active {
 button.c.success.link:active:after {
   background: #41c070;
 }
-button.c.success.link:not(:hover):not(:active):focus {
-  color: #b8e7ca;
-}
-button.c.success.link:not(:hover):not(:active):focus:after {
-  background: #b8e7ca;
+button.c.success.link:focus {
+  -webkit-box-shadow: 0 0 10px #71d094;
+  box-shadow: 0 0 10px #71d094;
 }
 button.c.danger {
   color: #c25c47;
@@ -542,9 +538,9 @@ button.c.danger:not(.link):active {
   background: #9f4735;
   border-color: #9f4735;
 }
-button.c.danger:not(.link):not(:hover):not(:active):focus {
-  color: #e1ada3;
-  border-color: #e1ada3;
+button.c.danger:not(.link):focus {
+  -webkit-box-shadow: 0 0 5px #c25c47;
+  box-shadow: 0 0 5px #c25c47;
 }
 button.c.danger.link:hover:after,
 button.c.danger.link:focus:after {
@@ -556,11 +552,9 @@ button.c.danger.link:active {
 button.c.danger.link:active:after {
   background: #9f4735;
 }
-button.c.danger.link:not(:hover):not(:active):focus {
-  color: #e1ada3;
-}
-button.c.danger.link:not(:hover):not(:active):focus:after {
-  background: #e1ada3;
+button.c.danger.link:focus {
+  -webkit-box-shadow: 0 0 10px #c25c47;
+  box-shadow: 0 0 10px #c25c47;
 }
 button.c.info {
   color: #4064bf;
@@ -575,9 +569,9 @@ button.c.info:not(.link):active {
   background: #335099;
   border-color: #335099;
 }
-button.c.info:not(.link):not(:hover):not(:active):focus {
-  color: #a0b1df;
-  border-color: #a0b1df;
+button.c.info:not(.link):focus {
+  -webkit-box-shadow: 0 0 5px #4064bf;
+  box-shadow: 0 0 5px #4064bf;
 }
 button.c.info.link:hover:after,
 button.c.info.link:focus:after {
@@ -589,11 +583,9 @@ button.c.info.link:active {
 button.c.info.link:active:after {
   background: #335099;
 }
-button.c.info.link:not(:hover):not(:active):focus {
-  color: #a0b1df;
-}
-button.c.info.link:not(:hover):not(:active):focus:after {
-  background: #a0b1df;
+button.c.info.link:focus {
+  -webkit-box-shadow: 0 0 10px #4064bf;
+  box-shadow: 0 0 10px #4064bf;
 }
 button.c.warning {
   color: #ffa514;
@@ -608,9 +600,9 @@ button.c.warning:not(.link):active {
   background: #dc8800;
   border-color: #dc8800;
 }
-button.c.warning:not(.link):not(:hover):not(:active):focus {
-  color: #ffd28a;
-  border-color: #ffd28a;
+button.c.warning:not(.link):focus {
+  -webkit-box-shadow: 0 0 5px #ffa514;
+  box-shadow: 0 0 5px #ffa514;
 }
 button.c.warning.link:hover:after,
 button.c.warning.link:focus:after {
@@ -622,11 +614,9 @@ button.c.warning.link:active {
 button.c.warning.link:active:after {
   background: #dc8800;
 }
-button.c.warning.link:not(:hover):not(:active):focus {
-  color: #ffd28a;
-}
-button.c.warning.link:not(:hover):not(:active):focus:after {
-  background: #ffd28a;
+button.c.warning.link:focus {
+  -webkit-box-shadow: 0 0 10px #ffa514;
+  box-shadow: 0 0 10px #ffa514;
 }
 button.c.alert {
   color: #d5d581;
@@ -641,9 +631,9 @@ button.c.alert:not(.link):active {
   background: #c4c44e;
   border-color: #c4c44e;
 }
-button.c.alert:not(.link):not(:hover):not(:active):focus {
-  color: #eaeac0;
-  border-color: #eaeac0;
+button.c.alert:not(.link):focus {
+  -webkit-box-shadow: 0 0 5px #d5d581;
+  box-shadow: 0 0 5px #d5d581;
 }
 button.c.alert.link:hover:after,
 button.c.alert.link:focus:after {
@@ -655,11 +645,71 @@ button.c.alert.link:active {
 button.c.alert.link:active:after {
   background: #c4c44e;
 }
-button.c.alert.link:not(:hover):not(:active):focus {
-  color: #eaeac0;
+button.c.alert.link:focus {
+  -webkit-box-shadow: 0 0 10px #d5d581;
+  box-shadow: 0 0 10px #d5d581;
 }
-button.c.alert.link:not(:hover):not(:active):focus:after {
-  background: #eaeac0;
+button.c.light {
+  color: #fff;
+}
+button.c.light:not(.link) {
+  border-color: #fff;
+}
+button.c.light:not(.link):hover {
+  background: #fff;
+}
+button.c.light:not(.link):active {
+  background: #ccc;
+  border-color: #ccc;
+}
+button.c.light:not(.link):focus {
+  -webkit-box-shadow: 0 0 5px #fff;
+  box-shadow: 0 0 5px #fff;
+}
+button.c.light.link:hover:after,
+button.c.light.link:focus:after {
+  background: #fff;
+}
+button.c.light.link:active {
+  color: #ccc;
+}
+button.c.light.link:active:after {
+  background: #ccc;
+}
+button.c.light.link:focus {
+  -webkit-box-shadow: 0 0 10px #fff;
+  box-shadow: 0 0 10px #fff;
+}
+button.c.dark {
+  color: #000;
+}
+button.c.dark:not(.link) {
+  border-color: #000;
+}
+button.c.dark:not(.link):hover {
+  background: #000;
+}
+button.c.dark:not(.link):active {
+  background: #000;
+  border-color: #000;
+}
+button.c.dark:not(.link):focus {
+  -webkit-box-shadow: 0 0 5px #000;
+  box-shadow: 0 0 5px #000;
+}
+button.c.dark.link:hover:after,
+button.c.dark.link:focus:after {
+  background: #000;
+}
+button.c.dark.link:active {
+  color: #000;
+}
+button.c.dark.link:active:after {
+  background: #000;
+}
+button.c.dark.link:focus {
+  -webkit-box-shadow: 0 0 10px #000;
+  box-shadow: 0 0 10px #000;
 }
 button.c.half {
   font-size: 5px;
@@ -676,4 +726,60 @@ button.c.large {
 button.c.double {
   font-size: 20px;
   padding: 18px 60px;
+}
+.c.view {
+  background: #6857c7;
+}
+.c.view button.c:not(.link).light:hover,
+.c.view button.c:not(.link).light:active {
+  color: #6857c7;
+}
+.c.view.success {
+  background: #71d094;
+}
+.c.view.success button.c:not(.link).light:hover,
+.c.view.success button.c:not(.link).light:active {
+  color: #71d094;
+}
+.c.view.danger {
+  background: #c25c47;
+}
+.c.view.danger button.c:not(.link).light:hover,
+.c.view.danger button.c:not(.link).light:active {
+  color: #c25c47;
+}
+.c.view.info {
+  background: #4064bf;
+}
+.c.view.info button.c:not(.link).light:hover,
+.c.view.info button.c:not(.link).light:active {
+  color: #4064bf;
+}
+.c.view.warning {
+  background: #ffa514;
+}
+.c.view.warning button.c:not(.link).light:hover,
+.c.view.warning button.c:not(.link).light:active {
+  color: #ffa514;
+}
+.c.view.alert {
+  background: #d5d581;
+}
+.c.view.alert button.c:not(.link).light:hover,
+.c.view.alert button.c:not(.link).light:active {
+  color: #d5d581;
+}
+.c.view.light {
+  background: #fff;
+}
+.c.view.light button.c:not(.link).light:hover,
+.c.view.light button.c:not(.link).light:active {
+  color: #fff;
+}
+.c.view.dark {
+  background: #000;
+}
+.c.view.dark button.c:not(.link).light:hover,
+.c.view.dark button.c:not(.link).light:active {
+  color: #000;
 }

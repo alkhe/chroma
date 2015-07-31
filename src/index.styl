@@ -21,7 +21,7 @@ $alert = $yellow
 $border-size = 2px
 $border-radius = 0
 
-colors = (() $primary) (success $success) (danger $danger) (info $info) (warning $warning) (alert $alert)
+colors = (() $primary) (success $success) (danger $danger) (info $info) (warning $warning) (alert $alert) (light $white) (dark $black)
 sizes = (() 1) (half 1/2) (small 2/3) (large 4/3) (double 2)
 transition-scheme = .3s cubic-bezier(0, 1, 0, 1)
 
@@ -63,7 +63,8 @@ $transition()
 button.c
 	$transition()
 	outline 0
-	background $white
+	background transparent
+	position relative
 
 	&:not(.link)
 		border $border-size solid
@@ -82,10 +83,11 @@ button.c
 			height $border-size
 			border-radius $border-radius
 			width 0
-			background transparent
+			// float right
 
 		&:hover:after, &:focus:after
 			width 100%
+			// float left
 
 	colorify(c)
 		color c
@@ -100,13 +102,16 @@ button.c
 				background $active(c)
 				border-color $active(c)
 
-			&:not(:hover):not(:active):focus
-				color $focus(c)
-				border-color $focus(c)
+			// &:not(:hover):not(:active):focus
+			// 	color $focus(c)
+			// 	border-color $focus(c)
+			&:focus
+				box-shadow 0 0 5px c
 
 		&.link
-			&:hover:after, &:focus:after
-				background c
+			&:hover, &:focus
+				&:after
+					background c
 
 			&:active
 				color $active(c)
@@ -114,14 +119,25 @@ button.c
 				&:after
 					background $active(c)
 
-			&:not(:hover):not(:active):focus
-				color $focus(c)
-
-				&:after
-					background $focus(c)
+			// &:not(:hover):not(:active):focus
+			// 	color $focus(c)
+			//
+			// 	&:after
+			// 		background $focus(c)
+			&:focus
+				box-shadow 0 0 10px c
 	$color colorify
 
 	sizify(s)
 		$scale s, font-size 10px
 		$scale s, padding 9px 30px
 	$size sizify
+
+.c.view
+	colorify(c)
+		background c
+
+		button.c:not(.link).light
+			&:hover, &:active
+				color c
+	$color colorify
