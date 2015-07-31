@@ -21,8 +21,9 @@ $alert = $yellow
 $border-size = 2px
 $border-radius = 0
 
-colors = ('' $primary) (success $success) (danger $danger) (info $info) (warning $warning) (alert $alert)
-sizes = ('' 1) (small 2/3) (large 4/3)
+colors = (() $primary) (success $success) (danger $danger) (info $info) (warning $warning) (alert $alert)
+sizes = (() 1) (half 1/2) (small 2/3) (large 4/3) (double 2)
+transition-scheme = .3s ease-out
 
 $darken(c)
 	darken c 20%
@@ -35,39 +36,34 @@ $focus = $lighten
 
 $color(fn)
 	for c in colors
-		if c[0] is ''
+		if c[0] is ()
 			fn c[1]
 		else
 			&.{c[0]}
 				fn c[1]
 
-// $scale(factor, args)
-// 	list = clone(args)
-// 	for i in list
-// 		if i isnt 0
-// 			list[i] *= factor
-// 	list
-
-$size(props...)
+$size(fn)
 	for s in sizes
-		if s[0] is ''
-			for p in props
-				{p[0]} p[1] * s[1]
+		if s[0] is ()
+			fn s[1]
 		else
 			&.{s[0]}
-				for p in props
-					{p[0]} p[1] * s[1]
+				fn s[1]
+
+$scale(factor, list)
+	arr = ()
+	for v, i in list
+		if i isnt 0
+			push arr v * factor
+	{list[0]} arr
 
 $transition()
-	transition .2s ease
+	transition transition-scheme
 
 button.c
 	$transition()
 	outline 0
 	background $white
-
-	font-size 10px
-	padding 9px 30px
 
 	&:not(.link)
 		border $border-size solid
@@ -91,15 +87,7 @@ button.c
 		&:hover:after, &:focus:after
 			width 100%
 
-	&.small
-		font-size 10px
-		padding 6px 20px
-
-	&.large
-		font-size 20px
-		padding 12px 40px
-
-	colorize(c)
+	colorify(c)
 		color c
 
 		&:not(.link)
@@ -131,4 +119,9 @@ button.c
 
 				&:after
 					background $focus(c)
-	$color colorize
+	$color colorify
+
+	sizify(s)
+		$scale s, font-size 10px
+		$scale s, padding 9px 30px
+	$size sizify

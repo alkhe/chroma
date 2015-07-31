@@ -424,16 +424,16 @@ th {
 }
 
 button.c {
-  -webkit-transition: 0.2s ease;
-  -moz-transition: 0.2s ease;
-  -o-transition: 0.2s ease;
-  -ms-transition: 0.2s ease;
-  transition: 0.2s ease;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -ms-transition: 0.3s;
+  transition: 0.3s;
   outline: 0;
   background: #fff;
+  color: #6857c7;
   font-size: 10px;
   padding: 9px 30px;
-  color: #6857c7;
 }
 button.c:not(.link) {
   border: 2px solid;
@@ -448,11 +448,11 @@ button.c.link {
   border: 2px solid transparent;
 }
 button.c.link:after {
-  -webkit-transition: 0.2s ease;
-  -moz-transition: 0.2s ease;
-  -o-transition: 0.2s ease;
-  -ms-transition: 0.2s ease;
-  transition: 0.2s ease;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -ms-transition: 0.3s;
+  transition: 0.3s;
   content: '';
   display: block;
   margin: auto;
@@ -465,14 +465,6 @@ button.c.link:after {
 button.c.link:hover:after,
 button.c.link:focus:after {
   width: 100%;
-}
-button.c.small {
-  font-size: 10px;
-  padding: 6px 20px;
-}
-button.c.large {
-  font-size: 20px;
-  padding: 12px 40px;
 }
 button.c:not(.link) {
   border-color: #6857c7;
@@ -668,4 +660,20 @@ button.c.alert.link:not(:hover):not(:active):focus {
 }
 button.c.alert.link:not(:hover):not(:active):focus:after {
   background: #eaeac0;
+}
+button.c.half {
+  font-size: 5px;
+  padding: 4.5px 15px;
+}
+button.c.small {
+  font-size: 6.666666666666666px;
+  padding: 6px 20px;
+}
+button.c.large {
+  font-size: 13.333333333333332px;
+  padding: 12px 40px;
+}
+button.c.double {
+  font-size: 20px;
+  padding: 18px 60px;
 }
